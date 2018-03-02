@@ -1,0 +1,33 @@
+﻿@model PairingTest.Web.Models.QuestionnaireViewModel
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<html>
+<head>
+    <title>@Model.QuestionnaireTitle</title>
+</head>
+<body>
+
+<h3>@Model.QuestionnaireTitle</h3>
+<br/>
+
+@using (Html.BeginForm("Index", "Questionnaire"))
+{
+
+    foreach (var m in Model.QuestionsText)
+    {
+        <div class="form-group">
+            <label for="@m">@Html.LabelForModel(m)</label>
+            <input type="text" class="form-control">
+        </div>
+
+    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default"/>
+        </div>
+    </div>
+
+}
+</body>
+</html>
